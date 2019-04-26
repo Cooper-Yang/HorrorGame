@@ -8,6 +8,7 @@ public class PlayerMove : MonoBehaviour
     Camera viewCamera;
 
     public float moveSpd = 6;
+    public float WaitTime = 0.1f;
     Vector3 velocity;
 
     Vector3 mousePos;
@@ -53,6 +54,8 @@ public class PlayerMove : MonoBehaviour
         //                                                             Input.mousePosition.y,
         //                                                             viewCamera.transform.position.y));
         velocity = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"),0 ).normalized * moveSpd;
+
+
         MouseLook();
     }
 
@@ -67,8 +70,16 @@ public class PlayerMove : MonoBehaviour
             mousePos.x - transform.position.x,
             mousePos.y - transform.position.y);
 
+/*<<<<<<< HEAD
         transform.up = dir;
     }
+
+
+=======*/
+        float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
+        this.transform.rotation = Quaternion.Euler(0f, 0f, rot_z - defaultSpriteAngle);
+    }
+
 
 
     /*void Move()
@@ -112,4 +123,11 @@ public class PlayerMove : MonoBehaviour
 
         player.eulerAngles = new Vector3(0, 0, pov);
     }*/
+
+    IEnumerator Reset(float Count)
+    {
+        yield return new WaitForSeconds(Count); //Count is the amount of time in seconds that you want to wait.
+                                                //And here goes your method of resetting the game...
+        yield return null;
+    }
 }
