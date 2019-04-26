@@ -53,22 +53,21 @@ public class PlayerMove : MonoBehaviour
         //                                                             Input.mousePosition.y,
         //                                                             viewCamera.transform.position.y));
         velocity = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"),0 ).normalized * moveSpd;
-
         MouseLook();
-
-        //Move();
-        //ChangeViewPoint();
     }
 
 
     public float defaultSpriteAngle = 0; //My sprites always face Right so this is 0.
     private void MouseLook()
     {
-        Vector3 diff = Camera.main.ScreenToWorldPoint(Input.mousePosition) - this.transform.position;
-        diff.Normalize();
+        Vector3 mousePos = Input.mousePosition;
+        mousePos = Camera.main.ScreenToWorldPoint(mousePos);
 
-        float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
-        this.transform.rotation = Quaternion.Euler(0f, 0f, rot_z - defaultSpriteAngle);
+        Vector2 dir = new Vector2(
+            mousePos.x - transform.position.x,
+            mousePos.y - transform.position.y);
+
+        transform.up = dir;
     }
 
 
