@@ -70,15 +70,15 @@ public class PlayerMove : MonoBehaviour
             mousePos.x - transform.position.x,
             mousePos.y - transform.position.y);
 
-/*<<<<<<< HEAD
+//<<<<<<< HEAD
         transform.up = dir;
     }
 
 
-=======*/
+/*=======
         float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
         this.transform.rotation = Quaternion.Euler(0f, 0f, rot_z - defaultSpriteAngle);
-    }
+    }*/
 
 
 
