@@ -73,7 +73,7 @@ public class FieldOfView : MonoBehaviour
 
         for (int i = 0; i <= stepCount; i++)
         {
-            float angle = -transform.eulerAngles.z - viewAngle / 2 + stepAngleSize * i; ////////
+            float angle = transform.eulerAngles.y - viewAngle / 2 + stepAngleSize * i;
             ViewCastInfo newViewCast = ViewCast(angle);
             if (i > 0)
             {
@@ -167,9 +167,9 @@ public class FieldOfView : MonoBehaviour
     {
         if (!angleIsGlobal)
         {
-            angleInDegrees -= transform.eulerAngles.z;
+            angleInDegrees -= transform.eulerAngles.y;
         }
-        return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), Mathf.Cos(angleInDegrees * Mathf.Deg2Rad), 0 );
+        return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), 0, Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
     }
 
     public struct ViewCastInfo
