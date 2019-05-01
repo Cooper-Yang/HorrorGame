@@ -43,16 +43,11 @@ public class PlayerMove : MonoBehaviour
     void FixedUpdate()
     {
         position = player.position;
-        //rb.MovePosition(position + velocity);
         rb.MovePosition(position + velocity * Time.fixedDeltaTime);
     }
 
    void Update()
     {
-        
-        //Vector3 mousePos = viewCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x,
-        //                                                             Input.mousePosition.y,
-        //                                                             viewCamera.transform.position.y));
         velocity = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"),0 ).normalized * moveSpd;
 
 
@@ -60,7 +55,7 @@ public class PlayerMove : MonoBehaviour
     }
 
 
-    public float defaultSpriteAngle = 0; //My sprites always face Right so this is 0.
+    public float defaultSpriteAngle = 0;
     private void MouseLook()
     {
         Vector3 mousePos = Input.mousePosition;
@@ -72,51 +67,6 @@ public class PlayerMove : MonoBehaviour
 
         transform.up = dir;
     }
-
-
-
-
-    /*void Move()
-    {
-        if (Input.GetKey(walkD))
-        {
-            player.position = new Vector3(position.x , position.y-walkSpeed);
-        }
-        if (Input.GetKey(walkU))
-        {
-            player.position = new Vector3(position.x , position.y+walkSpeed);
-        }
-        if (Input.GetKey(walkL))
-        {
-            player.position = new Vector3(position.x-walkSpeed , position.y);
-        }
-        if (Input.GetKey(walkR))
-        {
-            player.position = new Vector3(position.x+walkSpeed, position.y);
-        }
-    }*/
-
-    /*void ChangeViewPoint()
-    {
-        if (Input.GetKeyDown(lookD))
-        {
-
-        }
-        if (Input.GetKeyDown(lookU))
-        {
-
-        }
-        if (Input.GetKeyDown(lookL))
-        {
-
-        }
-        if (Input.GetKeyDown(lookR))
-        {
-
-        }
-
-        player.eulerAngles = new Vector3(0, 0, pov);
-    }*/
 
     IEnumerator Reset(float Count)
     {
