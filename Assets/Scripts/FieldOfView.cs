@@ -150,7 +150,7 @@ public class FieldOfView : MonoBehaviour
 
     ViewCastInfo ViewCast(float globalAngle)
     {
-        Vector3 dir = DirFromAngle(globalAngle, true);
+        Vector3 dir = DirFromAngle(globalAngle, false);
         RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, viewRadius, obstacleMask);
         
         if (hit)
@@ -167,9 +167,9 @@ public class FieldOfView : MonoBehaviour
     {
         if (!angleIsGlobal)
         {
-            angleInDegrees -= transform.eulerAngles.y;
+            angleInDegrees -= transform.eulerAngles.z;
         }
-        return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), 0, Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
+        return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), Mathf.Cos(angleInDegrees * Mathf.Deg2Rad),0 );
     }
 
     public struct ViewCastInfo
