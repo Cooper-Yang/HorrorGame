@@ -129,6 +129,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 72876745}
+  - component: {fileID: 72876746}
   m_Layer: 0
   m_Name: LightSource
   m_TagString: Untagged
@@ -151,6 +152,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &72876746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 72876744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46b5d2d76c99b9c47856672310d0b6af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewRadius: 1
+  viewAngle: 0
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 0
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 0
+  visibleTargets: []
+  meshResolution: 0
+  edgeResolveIterations: 0
+  edgeDstThreshold: 0
+  viewMeshFilter: {fileID: 0}
 --- !u!1 &198280908
 GameObject:
   m_ObjectHideFlags: 0
